@@ -1,0 +1,23 @@
+ion-card{
+    text-align: center;
+    ion-card-content{
+        text-align: start;
+    }
+}
+
+ion-item{
+    margin: 10px 0;
+}
+h3{
+    text-align: center;
+    margin: 20px 0;
+}
+.gl-btn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.gl-btn ion-button{
+    margin-top: 10px;
+}

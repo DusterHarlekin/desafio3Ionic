@@ -1,0 +1,25 @@
+<h1>Catálogo</h1>
+<ion-card (click)="openModal(p.id)" button="true" *ngFor="let p of productos">
+  <img [src]="p.img"/>
+  <ion-card-header>
+    <ion-card-title>{{p.nombre}}</ion-card-title>
+    <ion-card-title><ion-text color="success">{{p.precio | currency : 'USD' : 'symbol' : '1.2-2'}}</ion-text></ion-card-title>
+  </ion-card-header>
+</ion-card>
+
+<ion-modal trigger="open-modal">
+  <ng-template>
+    <ion-header>
+      <ion-toolbar color="primary">
+        <ion-buttons slot="start">
+          <ion-button (click)="cancel()"><ion-icon name="close-sharp"></ion-icon></ion-button>
+        </ion-buttons>
+        <ion-title>Producto</ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content class="ion-padding">
+      <app-detalles [selectedProduct]="selectedProduct" [modal]="modal"></app-detalles>
+    </ion-content>
+  </ng-template>
+</ion-modal>
+

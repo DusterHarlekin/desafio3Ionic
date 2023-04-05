@@ -1,0 +1,80 @@
+<div>
+  <ion-card>
+    <img [src]="selectedProduct.img" />
+    <ion-card-header>
+      <ion-card-title
+        ><ion-text color="dark">{{
+          selectedProduct.nombre
+        }}</ion-text></ion-card-title
+      >
+      <ion-card-title
+        ><ion-text color="success">{{
+          selectedProduct.precio | currency: "USD":"symbol":"1.2-2"
+        }}</ion-text></ion-card-title
+      >
+    </ion-card-header>
+    <ion-card-content>
+      {{ selectedProduct.descripcion }}
+    </ion-card-content>
+  </ion-card>
+</div>
+
+<div>
+  <form #form="ngForm" (ngSubmit)="enviarSMS(form)">
+    <h2>Información de envio</h2>
+    <ion-item>
+      <ion-input
+        name="name"
+        type="text"
+        placeholder="Nombre del cliente"
+        ngModel
+        required
+      ></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-input
+        name="telf"
+        type="text"
+        placeholder="Teléfono del cliente"
+        ngModel
+        required
+      ></ion-input>
+    </ion-item>
+    <h5>Ubicación</h5>
+    <ion-item>
+      <ion-label>Longitud:</ion-label>
+      <ion-input
+        name="long"
+        type="text"
+        placeholder="Longitud"
+        [(ngModel)]="long"
+        readonly
+        required
+      ></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Latitud:</ion-label>
+      <ion-input
+        name="lat"
+        type="text"
+        placeholder="Latitud"
+        [(ngModel)]="lat"
+        readonly
+        required
+      ></ion-input>
+    </ion-item>
+    <div class="gl-btn">
+      <ion-button
+        type="button"
+        (click)="getGeolocation()"
+        color="primary"
+        size="large">
+        <ion-icon name="location-sharp"></ion-icon>
+      </ion-button>
+      <ion-button size="large" type="submit" color="success" [disabled]="form.invalid">
+        <ion-icon name="paper-plane-sharp"></ion-icon>
+      </ion-button>
+    </div>
+  </form>
+</div>
